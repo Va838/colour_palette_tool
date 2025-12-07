@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Palette Tool - Generate Accessible Color Palettes</title>
+    <meta name="description" content="Generate accessible and aesthetically pleasing color palettes for your applications">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <div class="container">
+        <header class="header">
+            <h1>Color Palette Tool</h1>
+            <p class="subtitle">Generate accessible color palettes for your applications</p>
+        </header>
+
+        <main class="main-content" id="main-content">
+            <section class="input-section" id="inputSection">
+                <h2>Tell us about your project</h2>
+                <form id="paletteForm" class="palette-form" novalidate>
+                    <div class="form-group">
+                        <label for="appType">Application Type</label>
+                        <select id="appType" name="appType" required>
+                            <option value="">Select application type...</option>
+                            <option value="web-dashboard">Web Dashboard</option>
+                            <option value="mobile-app">Mobile App</option>
+                            <option value="portfolio">Portfolio Site</option>
+                            <option value="e-commerce">E-commerce</option>
+                            <option value="saas">SaaS Application</option>
+                            <option value="blog">Blog/Content Site</option>
+                            <option value="landing-page">Landing Page</option>
+                        </select>
+                        <span class="error-message" id="appTypeError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="purpose">Application Purpose</label>
+                        <textarea 
+                            id="purpose" 
+                            name="purpose" 
+                            rows="3" 
+                            placeholder="Describe what your application does (e.g., 'A fitness tracking app for runners')"
+                            required
+                        ></textarea>
+                        <span class="error-message" id="purposeError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="colorMood">Color Mood</label>
+                        <select id="colorMood" name="colorMood" required>
+                            <option value="">Select color mood...</option>
+                            <option value="warm">Warm (reds, oranges, yellows)</option>
+                            <option value="cool">Cool (blues, teals, purples)</option>
+                            <option value="pastel">Pastel (soft, muted colors)</option>
+                            <option value="dark">Dark Mode (dark backgrounds, bright accents)</option>
+                        </select>
+                        <span class="error-message" id="colorMoodError"></span>
+                    </div>
+
+                    <button type="submit" class="btn-primary">Generate Palettes</button>
+                </form>
+            </section>
+
+            <section class="results-section" id="resultsSection" aria-live="polite">
+                <div class="loading" id="loading" hidden>
+                    <div class="spinner"></div>
+                    <p>Generating your palettes...</p>
+                </div>
+                
+                <div class="palettes-container" id="palettesContainer">
+                    <!-- Generated palettes will be inserted here -->
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>Built with accessibility in mind • WCAG AA compliant palettes</p>
+        </footer>
+    </div>
+
+    <div class="toast" id="toast" hidden>
+        <span id="toastMessage"></span>
+    </div>
+
+    <script src="app.js" type="module"></script>
+</body>
+</html>
